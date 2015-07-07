@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<% # encoding: UTF-8 %>
+<html>
+<head>
+  <title>Backend4</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if user_signed_in? %>
+    <span>Здравствуйте, <%= current_user.email %></span>
+    <%= button_to('Выйти', destroy_user_session_path, :method => :delete) %>
+<% end %>
+<%= yield %>
+
+</body>
+</html>
